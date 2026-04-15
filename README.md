@@ -1,77 +1,60 @@
-# CampusLedger (EdTech Analytics Platform)
+# 🚀 CampusLedger — Smart Student Analytics Dashboard
 
-Production-style student analytics dashboard with Django REST APIs + React UI.
+## 📌 Overview
 
-## Tech
-- Backend: Django + Django REST Framework
-- DB: PostgreSQL (with SQLite fallback for quick local smoke tests)
-- Frontend: React (Vite) + Tailwind + Recharts
+CampusLedger is a full-stack web application designed to manage and analyze student data intelligently.  
+It goes beyond simple data storage by providing **insightful analytics, trends, and alerts** to help students and institutions make better decisions.
 
-## Backend setup (Windows PowerShell)
-From the repo root:
+---
 
-```powershell
-py -m venv .venv
-.\.venv\Scripts\python.exe -m pip install -r requirements.txt
-```
+## 🧠 Core Idea
 
-### Configure PostgreSQL (recommended)
-Set env vars (example):
+Instead of just showing:
+> "Here are your marks"
 
-```powershell
-$env:DB_ENGINE="postgres"
-$env:DB_NAME="hackathon"
-$env:DB_USER="postgres"
-$env:DB_PASSWORD="YOUR_PASSWORD"
-$env:DB_HOST="localhost"
-$env:DB_PORT="5432"
-```
+CampusLedger tells you:
+> "Your performance is dropping in these subjects — here’s why and what to improve"
 
-Then run:
+---
 
-```powershell
-.\.venv\Scripts\python.exe manage.py migrate
-.\.venv\Scripts\python.exe manage.py generate_mock_data --students 200 --wipe
-.\.venv\Scripts\python.exe manage.py runserver 8000
-```
+## ✨ Features
 
-### SQLite fallback (no Postgres needed)
+### 📊 Student Dashboard
+- View student profiles
+- Semester-wise academic performance
+- Attendance tracking
 
-```powershell
-$env:DB_ENGINE="sqlite"
-.\.venv\Scripts\python.exe manage.py migrate
-.\.venv\Scripts\python.exe manage.py generate_mock_data --students 200 --wipe
-.\.venv\Scripts\python.exe manage.py runserver 8000
-```
+### 📈 Analytics & Insights
+- Grade progression trends across semesters
+- Attendance heatmaps (weekly/monthly)
+- Visual charts for better understanding
 
-Backend runs at `http://127.0.0.1:8000/` and APIs at `http://127.0.0.1:8000/api/`.
+### 🚨 Smart Alert System
+- Detect attendance below 75%
+- Highlight performance drops
+- Generate actionable insights
 
-## Frontend setup
+### 🧪 Mock Data Generator
+- Populate system with sample data for demo
+- Easily simulate real-world usage
 
-```powershell
-cd frontend
-npm install
-npm run dev
-```
+---
 
-Frontend runs at `http://127.0.0.1:5173/`.
+## 🏗️ Tech Stack
 
-If your backend runs on a different host/port, set:
+### 🔹 Backend
+- Django (Python)
+- PostgreSQL (Database)
+- Django ORM
 
-```powershell
-$env:VITE_API_BASE="http://127.0.0.1:8000/api"
-```
+### 🔹 Frontend
+- React.js
+- Vite
+- Modern UI components
 
-## Key API routes
-- `GET /api/students/`
-- `GET /api/students/{id}/`
-- `GET /api/students/{id}/grades/trend/`
-- `GET /api/students/{id}/attendance/heatmap/?days=120`
-- `GET /api/students/{id}/activities/timeline/`
-- `GET /api/students/{id}/alerts/`
-- `GET /api/students/{id}/health-score/`
-- `GET /api/students/{id}/predict/`
-- `GET /api/students/{id}/report.pdf`
-- `GET /api/admin/analytics/?branch=CS&semester=3&subject=DBMS`
-- `POST /api/admin/chat-query/` with JSON `{ "query": "Show students with attendance below 60% in Sem 3" }`
+### 🔹 Tools
+- Git & GitHub
+- VS Code
+- npm
 
+---
